@@ -1,4 +1,6 @@
 class Ckeditor::PicturesController < Ckeditor::ApplicationController
+  
+  skip_before_filter :verify_authenticity_token
 
   def index
     @pictures = Ckeditor.picture_model.find_all(ckeditor_pictures_scope)
